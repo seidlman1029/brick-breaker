@@ -1,12 +1,19 @@
 extends CharacterBody2D
 
 var speed := 300.0
-var dir := Vector2.DOWN
-var is_active := true
+var is_active := false
 
 func _ready() -> void:
 	speed = speed + (20 * GameManager.level)
-	velocity = Vector2(speed * -1, speed)
+	$CPUParticles2D.visible = false;
+	velocity = Vector2(speed, speed)
+	
+func _process(_delta: float) -> void:
+	if !is_active:
+		if Input.is_action_just_pressed("launch"):
+			is_active = true;
+			$CPUParticles2D.visible = true;
+			
 	
 func _physics_process(delta: float) -> void:
 	if is_active:
@@ -22,8 +29,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -200
 		
 		# if we're stuck moving up and down, bump it to the side a bit
-		if abs(velocity.x) < 10:
+		if abs(velocity.x) < 100:
 			velocity.x = -200
+	else:
+		position.x = get_node("../paddleStatic").position.x
 	
 
 func game_over():

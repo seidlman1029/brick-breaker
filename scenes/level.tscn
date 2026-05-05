@@ -21,15 +21,12 @@ size = Vector2(1898.5, 20)
 [node name="Level" type="Node2D" unique_id=934921851]
 script = ExtResource("1_w8frs")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=667453969]
-position = Vector2(960, 543)
-
 [node name="paddle" parent="." unique_id=1238660706 instance=ExtResource("1_2q6dc")]
 visible = false
 position = Vector2(982, 971)
 
 [node name="Ball" parent="." unique_id=47705054 instance=ExtResource("2_w7c3h")]
-position = Vector2(1142, 769)
+position = Vector2(958, 906)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=452302689]
 
@@ -49,7 +46,7 @@ shape = SubResource("RectangleShape2D_mx8sn")
 [node name="Background" type="Sprite2D" parent="." unique_id=825774877]
 modulate = Color(1, 1, 1, 0.54901963)
 z_index = -2
-position = Vector2(959, 537)
+position = Vector2(959, 539)
 texture = ExtResource("4_mx8sn")
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=1315340793]
@@ -60,5 +57,8 @@ shape = SubResource("RectangleShape2D_ppgk2")
 
 [node name="paddleStatic" parent="." unique_id=1909309345 instance=ExtResource("5_ppgk2")]
 position = Vector2(958, 938)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1737212955]
+position = Vector2(960, 555)
 
 [connection signal="body_entered" from="DeathZone" to="Ball" method="_on_death_zone_body_entered"]
