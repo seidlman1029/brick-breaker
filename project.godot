@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brick Breaker"
-run/main_scene="uid://cxr3m1ph3qun4"
+run/main_scene="uid://ctitlescreen001"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]

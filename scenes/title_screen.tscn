@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ctitlescreen001"]
+
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_title"]
+[ext_resource type="Texture2D" uid="uid://cqdslh2n3ut56" path="res://assets/background.jpg" id="2_bg"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_title")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+modulate = Color(1, 1, 1, 0.54901963)
+texture = ExtResource("2_bg")
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 200.0
+offset_right = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "BRICK BREAKER"
+horizontal_alignment = 1
+
+[node name="StartLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 500.0
+offset_right = 250.0
+offset_bottom = 560.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Press SPACE to Start"
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 600.0
+offset_right = 250.0
+offset_bottom = 660.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "5 Levels • 3 Lives • Arrow Keys to Move"
+horizontal_alignment = 1
+modulate = Color(0.7, 0.7, 0.7, 1)

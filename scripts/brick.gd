@@ -21,7 +21,11 @@ func hit():
 		get_parent().get_node("Ball").is_active = false
 		await get_tree().create_timer(1).timeout
 		GameManager.level += 1
-		get_tree().reload_current_scene()
+		if GameManager.level > GameManager.max_levels:
+			# Player beat all 5 levels!
+			get_tree().change_scene_to_file("res://scenes/victory.tscn")
+		else:
+			get_tree().reload_current_scene()
 	else:
 		# wait one second before deleting block from existence
 		# we wait this one second bc that is the lifetime of the
@@ -29,6 +33,3 @@ func hit():
 		# If we removed the block right away, the particles wouldn't show
 		await get_tree().create_timer(1).timeout
 		queue_free()
-		
-		
-	
