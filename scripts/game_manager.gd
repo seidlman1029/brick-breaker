@@ -10,7 +10,7 @@ func add_points(points):
 
 func lose_life():
 	lives -= 1
-	return lives >= 0
+	return lives > 0
 
 func reset_game():
 	score = 0
