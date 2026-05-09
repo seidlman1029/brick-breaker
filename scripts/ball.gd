@@ -32,11 +32,9 @@ func _physics_process(delta: float) -> void:
 				var collision_point = collision.get_position()
 				var paddle_position = paddle.position
 				if abs(collision_point.x - paddle_position.x) >= speed_up_zone_check:
-					print("speeding up")
 					var new_speed = clamp(velocity.length() + (0.5 * velocity.length()), 420.0, 1000.0)
 					velocity = velocity.normalized() * new_speed
 				else:
-					print("slowing down")
 					var new_speed = clamp(velocity.length() - (0.3 * velocity.length()), 420.0, 1000.0)
 					velocity = velocity.normalized() * new_speed
 		
@@ -51,10 +49,17 @@ func _physics_process(delta: float) -> void:
 		position.x = get_node("../paddleStatic").position.x
 	
 
-func game_over():
-	GameManager.score = 0
-	get_tree().reload_current_scene()
-	
+func lose_life():
+	if GameManager.lose_life():
+		# Still have lives, reset ball position
+		is_active = false
+		$CPUParticles2D.visible = false
+		position = Vector2(get_node("../paddleStatic").position.x, 906)
+		velocity = Vector2(speed, speed)
+	else:
+		# No lives left - game over
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
 
 func _on_death_zone_body_entered(_body: Node2D) -> void:
-	call_deferred("game_over")
+	call_deferred("lose_life")

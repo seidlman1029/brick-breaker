@@ -61,4 +61,15 @@ position = Vector2(958, 938)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1737212955]
 position = Vector2(960, 555)
 
+[node name="LevelBanner" type="Label" parent="."]
+z_index = 10
+offset_left = 660.0
+offset_top = 400.0
+offset_right = 1260.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 72
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="DeathZone" to="Ball" method="_on_death_zone_body_entered"]
